@@ -8,7 +8,7 @@ function printMessage(username, badgecount, points) {
   console.log(message);
 }
 
-// printMessage(userInfo.name, userInfo.badges.length, userInfo.points.total);
+// printMessage(userInfo.name, userInfo.badges.length, userInfo.points.JavaScript);
 
 var req = https.get('https://teamtreehouse.com/' + username + '.json', function(res){
   var body = ''
@@ -16,8 +16,8 @@ var req = https.get('https://teamtreehouse.com/' + username + '.json', function(
     body += chunk;
   })
   res.on('end', function() {
-    console.log(body);
-    console.log(typeof body);
+    var profile = JSON.parse(body);
+    printMessage(profile.name, profile.badges.length, profile.points.JavaScript);
   })
 });
 
