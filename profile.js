@@ -2,11 +2,13 @@ var https = require('https');
 var printMessage = require('./print-message');
 var printError = require('./print-error');
 
+////////////////////////////////////////////////////////////////////////////////
+// TODO: make getProfile just return
+////////////////////////////////////////////////////////////////////////////////
+
 module.exports = function getProfile(username, subject) {
   var username = username;
   var subject = subject;
-  console.log(username);
-  console.log(subject);
   // request data at the given url (exists in json format)
   var req = https.get('https://teamtreehouse.com/' + username + '.json', function(res){
     // concatinate body chunks on response (they come in numerous packages)
@@ -23,7 +25,6 @@ module.exports = function getProfile(username, subject) {
           var profile = JSON.parse(body);
           // print the message
           printMessage(profile.name, profile.badges.length, profile.points[subject], subject);
-          console.log(profile.points[subject] + ' ' + subject);
         } catch (e) { // print error
           printError(e);
         }

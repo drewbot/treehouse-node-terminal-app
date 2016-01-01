@@ -6,33 +6,7 @@ var users = process.argv.slice(2);
 var username = users[0];
 var subject = users[1];
 
-// var username = '';
-// var subject = '';
-
-// users.forEach(function(element, index, array){
-//   if (index = 0) {
-//     username = element;
-//     console.log(username);
-//   } else if (index = 1) {
-//     subject = element;
-//     console.log(subject);
-//   } else {
-//     console.log('you passed too many arguments')
-//   }
-// });
-
 getProfile(username, subject);
-
-// users.forEach(getProfile);
-
-
-// var element = element,
-//     index = index,
-//     array = array;
-// console.log(`Element: ${ element }, Index: ${ index }, Array: ${ array }`);
-
-
-
 
 // // print the array index of the element passed as a node argument and the element itself
 // var users = process.argv.slice(2);
