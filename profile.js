@@ -25,7 +25,7 @@ module.exports = function getProfile(username) {
         // using our print error function we created
         // passing in our own custom error object with the same message property as a standard error
         // print our message plus the value of a property on the http.STATUS_CODES object with the number of our response status code
-        printError({message: `There was an error getting the profile for ${ username }. (${ http.STATUS_CODES[res.statusCode] }), Unlike the tutorial you have to replace http with https in order for this to actually work`})
+        printError({message: `There was an error getting the profile for ${ username }. (${ http.STATUS_CODES[res.statusCode] }), Unlike the tutorial you have to replace http with https in order for this to actually work with your user name drewbotka2`})
       }
     })
   });
