@@ -1,18 +1,8 @@
 var https = require('https');
-// var userInfo = require('./user_drewbotka2.json')
+var printMessage = require('./print-message');
+var printError = require('./print-error');
 
-function printMessage(username, badgecount, points) {
-  var message = `${ username } has ${ badgecount } total badge(s) and ${ points } points in JS`;
-  console.log(message);
-}
-
-function printError(e){
-  console.error(e.message);
-}
-
-// printMessage(userInfo.name, userInfo.badges.length, userInfo.points.JavaScript);
-
-function get(username) {
+module.exports = function getProfile(username) {
   // request data at the given url (exists in json format)
   var req = https.get('https://teamtreehouse.com/' + username + '.json', function(res){
     // concatinate body chunks on response (they come in numerous packages)
@@ -43,5 +33,3 @@ function get(username) {
   // connection error
   req.on('error', printError);
 }
-
-module.exports.get = get;
