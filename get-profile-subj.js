@@ -1,9 +1,9 @@
 var https = require('https');
-var printMessage = require('./print-message');
+var printUserSubj = require('./print-user-subj');
 var printError = require('./print-error');
 
 ////////////////////////////////////////////////////////////////////////////////
-// TODO: make getProfile just return
+// TODO: make a getProfile module that just returns a profile object
 ////////////////////////////////////////////////////////////////////////////////
 
 module.exports = function getProfile(username, subject) {
@@ -24,7 +24,7 @@ module.exports = function getProfile(username, subject) {
           // parse (string to object) the data which arrrives as a string
           var profile = JSON.parse(body);
           // print the message
-          printMessage(profile.name, profile.badges.length, profile.points[subject], subject);
+          printUserSubj(profile.name, profile.badges.length, profile.points[subject], subject);
         } catch (e) { // print error
           printError(e);
         }

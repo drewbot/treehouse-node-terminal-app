@@ -1,12 +1,13 @@
-var getProfile = require('./profile');
-
+var getProfileSubj = require('./get-profile-subj');
+var getProfile = require('./get-profile');
 
 var users = process.argv.slice(2);
 
 var username = users[0];
 var subject = users[1];
 
-getProfile(username, subject);
+getProfileSubj(username, subject);
+getProfile(username);
 
 // // print the array index of the element passed as a node argument and the element itself
 // var users = process.argv.slice(2);
