@@ -1,13 +1,14 @@
 var https = require('https');
-var printUser = require('./print-user');
 var printError = require('./print-error');
 
 ////////////////////////////////////////////////////////////////////////////////
 // TODO: make a getProfile module that just returns a profile object
+// (May not actually be necessary now that I've added callback)
 ////////////////////////////////////////////////////////////////////////////////
 
-module.exports = function getProfile(username) {
+module.exports = function getProfile(username, callback, options) {
   var username = username;
+  var options = options;
   // request data at the given url (exists in json format)
   var req = https.get('https://teamtreehouse.com/' + username + '.json', function(res){
     // concatinate body chunks on response (they come in numerous packages)
@@ -22,8 +23,8 @@ module.exports = function getProfile(username) {
         try {
           // parse (string to object) the data which arrrives as a string
           var profile = JSON.parse(body);
-          // print the message
-          printUser(profile.name, profile.badges.length, profile.points.total);
+          //run callback
+          callback(profile, options);
         } catch (e) { // print error
           printError(e);
         }

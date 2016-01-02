@@ -1,4 +1,4 @@
-module.exports = function printUser(username, badgecount, points) {
-  var message = `${ username } has ${ badgecount } total badge(s) and ${ points } total point(s).`;
+module.exports = function printUser(profile) {
+  var message = `${ profile.name } has ${ profile.badges.length } total badge(s) and ${ profile.points.total } total point(s).`;
   console.log(message);
 }
